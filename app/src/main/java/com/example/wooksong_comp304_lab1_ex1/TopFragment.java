@@ -1,5 +1,6 @@
 package com.example.wooksong_comp304_lab1_ex1;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -54,6 +55,17 @@ public class TopFragment extends Fragment {
         activityList.add(getString(R.string.vr_activity_name));
         adapter = new RecyclerAdapter(activityList);
         recyclerView.setAdapter(adapter);
+        ((RecyclerAdapter)adapter).setOnItemClickListener(new RecyclerAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(String text) {
+                Intent intent = null;
+                if(text == getString(R.string.ai_activity_name))
+                    intent = new Intent(getContext(), AIActivity.class);
+                else if(text == getString(R.string.vr_activity_name))
+                    intent = new Intent(getContext(), VRActivity.class);
+                startActivity(intent);
+            }
+        });
 
         return view;
     }
