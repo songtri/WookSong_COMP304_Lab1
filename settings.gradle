@@ -1,0 +1,2 @@
+include ':app'
+rootProject.name = "WookSong_COMP304_Lab1_Ex1"

@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">WookSong_COMP304_Lab1_Ex1</string>
+    <string name="main_activity_name">Main Activity</string>
+    <string name="ai_activity_name">AIActivity</string>
+    <string name="vr_activity_name">VRActivity</string>
+    <string name="lifecycle_status_oncreate">OnCreate Executed</string>
+    <string name="lifecycle_status_onstart">OnStart Executed</string>
+    <string name="lifecycle_status_onrestart">OnRestart Executed</string>
+    <string name="lifecycle_status_onresume">OnResume Executed</string>
+    <string name="lifecycle_status_onpause">OnPause Executed</string>
+    <string name="lifecycle_status_onstop">OnStop Executed</string>
+    <string name="lifecycle_status_ondestroy">OnDestroy Executed</string>
+    <string name="fragment_top_name">Top Fragment</string>
+    <string name="fragment_bottom_name">Bottom Fragment</string>
+</resources>
