@@ -40,15 +40,13 @@ public class BottomFragment extends Fragment {
         if (getArguments() != null) {
         }
 
-        CharSequence seq = getString(R.string.fragment_bottom_name) + " " + getString(R.string.lifecycle_status_oncreate);
-        Toast.makeText(getContext(), seq, Toast.LENGTH_SHORT).show();
+        ShowToastMessage(getString(R.string.lifecycle_status_oncreate));
     }
 
     @Override
     public void onStart() {
         super.onStart();
-        CharSequence seq = getString(R.string.fragment_bottom_name) + " " + getString(R.string.lifecycle_status_onstart);
-        Toast.makeText(getContext(), seq, Toast.LENGTH_SHORT).show();
+        ShowToastMessage(getString(R.string.lifecycle_status_onstart));
     }
 
     @Override
@@ -56,5 +54,10 @@ public class BottomFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_bottom, container, false);
+    }
+
+    private void ShowToastMessage(String statusText) {
+        CharSequence seq = getString(R.string.status_toastmessage_fragment, getString(R.string.fragment_bottom_name), statusText);
+        Toast.makeText(getContext(), seq, Toast.LENGTH_SHORT).show();
     }
 }

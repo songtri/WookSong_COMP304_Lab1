@@ -12,4 +12,5 @@
     <string name="lifecycle_status_ondestroy">OnDestroy Executed</string>
     <string name="fragment_top_name">Top Fragment</string>
     <string name="fragment_bottom_name">Bottom Fragment</string>
+    <string name="status_toastmessage_fragment">%s %s</string>
 </resources>

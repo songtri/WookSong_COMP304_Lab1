@@ -76,15 +76,17 @@ public class TopFragment extends Fragment {
         if (getArguments() != null) {
         }
 
-        CharSequence seq = getString(R.string.fragment_top_name) + " " + getString(R.string.lifecycle_status_oncreate);
-        Toast.makeText(getContext(), seq, Toast.LENGTH_SHORT).show();
+        ShowToastMessage(getString(R.string.lifecycle_status_oncreate));
     }
-
 
     @Override
     public void onStart() {
         super.onStart();
-        CharSequence seq = getString(R.string.fragment_top_name) + " " + getString(R.string.lifecycle_status_onstart);
+        ShowToastMessage(getString(R.string.lifecycle_status_onstart));
+    }
+
+    private void ShowToastMessage(String statusText) {
+        CharSequence seq = getString(R.string.status_toastmessage_fragment, getString(R.string.fragment_top_name), statusText);
         Toast.makeText(getContext(), seq, Toast.LENGTH_SHORT).show();
     }
 }
