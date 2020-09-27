@@ -3,11 +3,15 @@ package com.example.wooksong_comp304_lab1_ex1;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -15,6 +19,9 @@ import android.widget.Toast;
  * create an instance of this fragment.
  */
 public class TopFragment extends Fragment {
+
+    private RecyclerView recyclerView;
+    private RecyclerView.Adapter adapter;
 
     public TopFragment() {
         // Required empty public constructor
@@ -34,6 +41,24 @@ public class TopFragment extends Fragment {
     }
 
     @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_top, container, false);
+
+        recyclerView = (RecyclerView)view.findViewById(R.id.recyclerview_fragment_top);
+        recyclerView.setHasFixedSize(true);
+
+        recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
+
+        ArrayList<String> activityList = new ArrayList<String>();
+        activityList.add(getString(R.string.ai_activity_name));
+        activityList.add(getString(R.string.vr_activity_name));
+        adapter = new RecyclerAdapter(activityList);
+        recyclerView.setAdapter(adapter);
+
+        return view;
+    }
+
+    @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
@@ -49,12 +74,5 @@ public class TopFragment extends Fragment {
         super.onStart();
         CharSequence seq = getString(R.string.fragment_top_name) + " " + getString(R.string.lifecycle_status_onstart);
         Toast.makeText(getContext(), seq, Toast.LENGTH_SHORT).show();
-    }
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_top, container, false);
     }
 }

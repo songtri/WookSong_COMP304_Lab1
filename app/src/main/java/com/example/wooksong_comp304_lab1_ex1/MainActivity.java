@@ -2,6 +2,8 @@ package com.example.wooksong_comp304_lab1_ex1;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.widget.TextView;
@@ -17,6 +19,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         bottomFragment = getSupportFragmentManager().findFragmentById(R.id.bottomFragment);
         textStatus = (TextView)findViewById(R.id.text_activity_main_status);
+
+        RecyclerView view = findViewById(R.id.recyclerview_fragment_top);
+        view.setLayoutManager(new LinearLayoutManager(this));
     }
 
     @Override
